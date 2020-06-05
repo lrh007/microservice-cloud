@@ -1,0 +1,17 @@
+server:
+  port: 7003
+
+spring:
+  application:
+    name: microservice-cloud-eureka-server-03
+
+
+eureka:
+  instance:
+    hostname: eureka7003.com #域名映射在host文件中配置
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+#     单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

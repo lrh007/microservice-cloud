@@ -1,0 +1,24 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: microservice-cloud-provider
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/database03?serverTimeZone=UTC
+    driver-class-name: org.gjt.mm.mysql.Driver
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-cfg.xml
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  type-aliases-package: com.lrh.cloud.api.bean
+  
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/

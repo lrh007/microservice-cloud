@@ -1,0 +1,21 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservice-cloud-zuul-gateway
+eureka:
+  instance:
+    prefer-ip-address: true   #访问地址可以显示ip地址
+    instance-id: gateway-9527.com
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+zuul:
+  routes:
+    mydept.serviceId: microservice-cloud-provider   #微服务的真实地址
+    mydept.path: /mydept/**      #将微服务的真实地址映射成这个地址
+#  ignored-services: microservice-cloud-provider #将真实的服务地址设置成不可以用，只能忽略一个
+  ignored-services: "*" #忽略所有的真实微服务
+  prefix: /lrh   #添加一个前缀可以更好的过滤请求
+

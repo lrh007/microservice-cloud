@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lrh.provider03.mapper.DeptMapper">
+    <select id="queryAll" resultType="com.lrh.cloud.api.bean.Dept">
+        select * from dept
+
+    </select>
+    <select id="query" parameterType="long" resultType="com.lrh.cloud.api.bean.Dept">
+        select * from dept
+        <where>
+            and deptNo = #{deptNo}
+        </where>
+    </select>
+    <insert id="addDept" parameterType="com.lrh.cloud.api.bean.Dept">
+        insert into dept(deptName,dataSource) VALUES(#{deptName},DATABASE())
+    </insert>
+</mapper>

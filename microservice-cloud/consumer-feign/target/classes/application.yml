@@ -1,0 +1,16 @@
+server:
+  port: 80
+spring:
+  application:
+    name: microservice-cloud-consumer-feign
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false #不用把自己注册到服务中心
+    service-url:
+      defaultZone:  http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+feign:
+  hystrix:
+    enabled: true  #启用客户端服务降级
